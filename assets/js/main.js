@@ -21,7 +21,8 @@
 		var	$window = $(window),
 			$body = $('body'),
 			$header = $('#header'),
-			$banner = $('#banner');
+			$banner = $('#banner'),
+			$icon = $('.image .icon');
 
 		// Disable animations/transitions until the page has loaded.
 			$body.addClass('is-loading');
@@ -60,6 +61,21 @@
 				});
 
 			}
+
+				$icon.scrollex({
+					enter:		function() { $(this)
+						.css('-webkit-transition', 'all 600ms cubic-bezier(0.47, 0, 0.745, 0.715)')
+						.css('transition',       'all 600ms cubic-bezier(0.47, 0, 0.745, 0.715)')
+						.css('background-color', '#2e3141')},
+
+					leave: function() { $(this)
+						.css('-webkit-transition', 'all 600ms cubic-bezier(-0.47, 0, -0.745, -0.715)')
+						.css('transition',       'all 600ms cubic-bezier(-0.47, 0, -0.745, -0.715)')
+						.css('background-color', '')}
+
+				}
+
+				);
 
 		// Menu.
 			var $menu = $('#menu');
